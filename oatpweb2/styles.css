@@ -1,0 +1,152 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    padding: 20px;
+}
+
+#calendar-container {
+    display: flex;
+    justify-content: center;
+}
+
+#calendar {
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#event-list {
+    max-width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.event-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 4px solid #90caf9;
+    background-color: #e3f2fd;
+    border-radius: 4px;
+}
+
+.event-title {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Cores para os eventos baseados nos esteticistas */
+.event-ana {
+    background-color: #f8bbd0;
+    border-color: #f48fb1;
+    color: #000; /* Texto preto para boa legibilidade */
+}
+
+.event-bia {
+    background-color: #bbdefb;
+    border-color: #90caf9;
+    color: #000;
+}
+
+.event-carol {
+    background-color: #c8e6c9;
+    border-color: #81c784;
+    color: #000;
+}
+
+/* Estilo para os eventos padrão (sem esteticista definido) */
+.event-default {
+    background-color: #e3f2fd;
+    border-color: #90caf9;
+    color: #000;
+}
+
+
+
+/* Estilos do menu de agendamento */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px; /* Aumente a largura */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.h2,p{
+    color: #4caf50;
+}
+
+#schedule-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 100;
+    height: 500px; /* Ajuste a altura para deixar mais alto */
+    width: 600px; /* Ajuste a largura */
+}
+
+/* Estiliza o container dos procedimentos */
+.procedures-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 450px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 96%; /* Ajuste a largura para ocupar todo o espaço disponível */
+}
+
+/* Estilo para cada item de procedimento */
+.procedure-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre a checkbox e o texto */
+    margin-bottom: 5px; /* Espaço entre os itens */
+}
+
+/* Estilo adicional para o botão de salvar, deletar, etc. */
+#save-appointment, #delete-appointment, #cancel-appointment {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#delete-appointment {
+    background-color: #f44336;
+}
+
+#cancel-appointment {
+    background-color: #9e9e9e;
+}
+
+#save-appointment:hover, #delete-appointment:hover, #cancel-appointment:hover {
+    opacity: 0.9;
+}
+
+#save-appointment:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

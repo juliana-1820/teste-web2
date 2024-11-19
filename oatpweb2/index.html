@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Funcional com Agendamentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Calendário com Agendamentos e Esteticistas</h2>
+    <div id="calendar-container">
+        <div id="calendar"></div>
+        <div id="event-list">
+            <h4>Agendamentos</h4>
+            <div id="event-items"></div>
+        </div>
+    </div>
+
+    <!-- Formulário de agendamento -->
+    <div id="schedule-menu" class="modal">
+        <div class="modal-content">
+            <h2>Agendamento</h2>
+            <p><label for="appointment-title">Nome da cliente:</label>
+            <input type="text" id="appointment-title" placeholder="Cliente"></p>
+        
+            <p>Procedimentos:</p> 
+            <div class="procedures-container"> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure1"> 
+                    <label for="procedure1">Limpeza de Pele Profunda</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure2"> 
+                    <label for="procedure2">Peeling Químico</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure3"> 
+                    <label for="procedure3">Aplicação de Toxina Botulínica (Botox)</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure4"> 
+                    <label for="procedure4">Preenchimento com Ácido Hialurônico</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure5"> 
+                    <label for="procedure5">Drenagem Linfática</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure6"> 
+                    <label for="procedure6">Depilação a Laser</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure7"> 
+                    <label for="procedure7">Massagem Relaxante</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure8"> 
+                    <label for="procedure8">Massagem Modeladora</label> 
+                </div> 
+                <div class="procedure-item"> 
+                    <input type="checkbox" id="procedure9"> 
+                    <label for="procedure9">Massagem Redutora</label> 
+                </div>                       
+
+            <p><label for="appointment-date">Data e Hora:</label>
+            <input type="datetime-local" id="appointment-date">
+
+            <label for="appointment-esthetician">Esteticista:</label>
+            <select id="appointment-esthetician">
+                <option value="Ana">Ana</option>
+                <option value="Bia">Bia</option>
+                <option value="Carol">Carol</option>
+            </select>
+            </p>
+            <button id="save-appointment">Salvar</button>
+            <button id="delete-appointment">Excluir</button>
+            <button id="cancel-appointment">Cancelar</button>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
