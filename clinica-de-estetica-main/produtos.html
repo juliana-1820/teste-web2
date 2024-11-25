@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Produtos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-color: #d9c8e2;
+    }
+
+    .container {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #ff4da6;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #e63996;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #8de1e6;
+    }
+
+    td {
+      background-color: #e0f7fa;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gestão de Produtos</h1>
+    <input type="text" id="productName" placeholder="Nome do Produto">
+    <input type="number" id="productPrice" placeholder="Preço (R$)">
+    <button onclick="addOrUpdateProduct()">Salvar Produto</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço (R$)</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="productTable">
+        <!-- Dados dinâmicos serão inseridos aqui -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let products = [];
+    let editIndex = -1;
+
+    function addOrUpdateProduct() {
+      const name = document.getElementById("productName").value;
+      const price = document.getElementById("productPrice").value;
+
+      if (name === "" || price === "") {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      if (editIndex === -1) {
+        // Adiciona um novo produto
+        products.push({ name, price });
+      } else {
+        // Atualiza produto existente
+        products[editIndex] = { name, price };
+        editIndex = -1;
+      }
+
+      document.getElementById("productName").value = "";
+      document.getElementById("productPrice").value = "";
+
+      renderTable();
+    }
+
+    function renderTable() {
+      const tableBody = document.getElementById("productTable");
+      tableBody.innerHTML = ""; // Limpa a tabela
+
+      products.forEach((product, index) => {
+        const row = `
+          <tr>
+            <td>${product.name}</td>
+            <td>${parseFloat(product.price).toFixed(2)}</td>
+            <td>
+              <button onclick="editProduct(${index})">Editar</button>
+              <button class="delete-btn" onclick="deleteProduct(${index})">Deletar</button>
+            </td>
+          </tr>
+        `;
+        tableBody.innerHTML += row;
+      });
+    }
+
+    function editProduct(index) {
+      document.getElementById("productName").value = products[index].name;
+      document.getElementById("productPrice").value = products[index].price;
+      editIndex = index;
+    }
+
+    function deleteProduct(index) {
+      products.splice(index, 1);
+      renderTable();
+    }
+  </script>
+</body>
+</html>
